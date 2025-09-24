@@ -56,6 +56,120 @@
       background-color: #1e293b;
       color: #f8fafc;
     }
+    
+    /* New styles for purple-black theme */
+    .dark body {
+      background: linear-gradient(135deg, #0f0a1e 0%, #1a1035 50%, #0f0a1e 100%);
+    }
+    
+    .dark .badge {
+      background: linear-gradient(135deg, #4c1d95 0%, #7c3aed 100%);
+      color: #f3e8ff;
+      border: 1px solid #7c3aed;
+    }
+    
+    .dark .theme-toggle {
+      background: linear-gradient(135deg, #4c1d95 0%, #7c3aed 100%);
+      color: #f3e8ff;
+      box-shadow: 0 4px 6px rgba(124, 58, 237, 0.3);
+    }
+    
+    .dark .theme-toggle:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 8px rgba(124, 58, 237, 0.4);
+    }
+    
+    .dark #profile-container {
+      border-color: #7c3aed;
+      box-shadow: 0 10px 15px rgba(124, 58, 237, 0.2);
+    }
+    
+    .dark h1 {
+      background: linear-gradient(90deg, #c4b5fd 0%, #a78bfa 50%, #c4b5fd 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .dark h2 {
+      background: linear-gradient(90deg, #c4b5fd 0%, #a78bfa 50%, #c4b5fd 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .dark .text-gray-400 {
+      color: #c4b5fd;
+    }
+    
+    .dark .text-gray-300 {
+      color: #ddd6fe;
+    }
+    
+    .dark section {
+      background: rgba(30, 27, 75, 0.5);
+      border-radius: 16px;
+      margin: 16px;
+      padding: 24px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(124, 58, 237, 0.2);
+    }
+    
+    .dark .container {
+      background: rgba(30, 27, 75, 0.5);
+      border-radius: 16px;
+      margin: 16px;
+      padding: 24px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(124, 58, 237, 0.2);
+    }
+    
+    /* Light theme remains unchanged */
+    body {
+      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    }
+    
+    .badge {
+      background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%);
+      border: 1px solid #cbd5e1;
+    }
+    
+    .theme-toggle {
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    .theme-toggle:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    }
+    
+    #profile-container {
+      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    h1 {
+      color: #1e293b;
+    }
+    
+    h2 {
+      color: #1e293b;
+    }
+    
+    section {
+      background: rgba(255, 255, 255, 0.7);
+      border-radius: 16px;
+      margin: 16px;
+      padding: 24px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    }
+    
+    .container {
+      background: rgba(255, 255, 255, 0.7);
+      border-radius: 16px;
+      margin: 16px;
+      padding: 24px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    }
   </style>
 </head>
 <body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 transition-colors duration-300 relative">
@@ -89,7 +203,7 @@
 
 <!-- About Me -->
 <section class="px-4 py-8">
-  <h2 class="text-2xl font-bold text-center mb-6" style="font-family: 'Poppins', sans-serif;">ALL ABOUT ME</h2>
+  <h2 class="text-2xl font-bold text-center mb-6" style="font-family: 'Poppins', sans-serif;">ABOUT ME</h2>
   <div class="flex flex-col md:flex-row items-center justify-center gap-8 max-w-4xl mx-auto">
     
     <!-- GIF Video -->
@@ -100,11 +214,11 @@
     <!-- Deskripsi + Badge -->
     <div class="text-center md:text-left">
       <p class="text-gray-700 dark:text-gray-300 text-base mb-3 leading-relaxed">
-        Ikhwan - adalah seseorang yang giat mendalami pemrograman dengan tujuan menciptakan solusi kreatif melalui teknologi.
+        Halo, saya Ikhwan. Saya senang mendalami pemrograman dan membuat solusi digital yang bermanfaat. Dengan rasa ingin tahu dan ketekunan, saya terus belajar teknologi baru untuk membangun proyek yang kreatif dan efisien. Bagi saya, setiap tantangan adalah kesempatan untuk berkembang dan menghadirkan sesuatu yang berguna bagi orang lain.
       </p>
       <div class="flex justify-center md:justify-start flex-wrap gap-2">
-        <span class="badge">🎧 Music Lover</span>
-        <span class="badge">💻 Dev</span>
+        <span class="badge">🎸 Music Lover</span>
+        <span class="badge">💻 Developer</span>
       </div>
     </div>
   </div>
