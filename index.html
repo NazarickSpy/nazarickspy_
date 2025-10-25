@@ -1,592 +1,435 @@
-<!--
-  🌐 Project: Personal Web - Lexion
-  🔧 Created by: Septianhdntta
-  📅 Year: 2025
-  📝 License: MIT
-  📁 GitHub: https://github.com/septianhdnatta/thatsme
--->
-
-
-
-
-<!DOCTYPE html><html lang="en" class="transition-colors duration-300">
+<!-- 🌐 Project: Personal Web - Lexion (Final Enhanced Version - COMPLETE JS) -->
+<!DOCTYPE html>
+<html lang="en" class="transition-colors duration-300">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nazarick - Portofolio</title>
-<meta property="og:title" content="Nazarick - Personal Portfolio" />
-<meta property="og:description" content="Personal web portofolio by Ikhwan (NazarickSpy_)." />
-<meta property="og:image" content="https://files.catbox.moe/vtv3s2.jpg" />
-<meta property="og:url" content="https://nazarickspy.vercel.app/" />
-<meta property="og:type" content="website" />
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Nazarick - Personal Portfolio" />
-<meta name="twitter:description" content="Explore the digital world of NazarickSpy_." />
-<meta name="twitter:image" content="https://files.catbox.moe/vtv3s2.jpg" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      darkMode: 'class'
+  <title>Nazarick - Portfolio</title>
+  <meta property="og:title" content="Nazarick - Personal Portfolio" />
+  <meta property="og:description" content="Personal web portfolio by Ikhwan (NazarickSpy_)." />
+  <meta property="og:image" content="https://files.catbox.moe/vtv3s2.jpg" />
+  <meta property="og:url" content="https://nazarickspy.vercel.app/" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Nazarick - Personal Portfolio" />
+  <meta name="twitter:description" content="Explore the digital world of NazarickSpy_." />
+  <meta name="twitter:image" content="https://files.catbox.moe/vtv3s2.jpg" />
+<script src="https://cdn.tailwindcss.com"></script>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+/>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+  /*  General */
+  body {
+    font-family: 'Poppins', sans-serif;
+    transition: background 0.3s, color 0.3s;
+    background-color: #fff;
+  }
+  .dark body {
+    background-color: #0f0f1a;
+  }
+
+  /*  Animation */
+  .fade-in-up {
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
     }
-  </script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');:root {
-  --primary-color: #4f46e5;
-  --secondary-color: #10b981;
-}
-
-body {
-  font-family: 'Poppins', sans-serif;
-}
-
-.banner {
-  height: 200px;
-  background-image: url('https://files.catbox.moe/alcmz1.gif');
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.link-card {
-  transition: all 0.3s ease;
-  border-radius: 12px;
-  overflow: hidden;
-  position: relative;
-}
-
-.link-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
-}
-
-.link-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 5px;
-  height: 100%;
-  background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
-}
-
-.social-icon {
-  transition: all 0.3s ease;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  background-color: white;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  color: var(--primary-color);
-}
-
-.social-icon:hover {
-  transform: scale(1.1);
-  color: white;
-  background-color: var(--primary-color);
-}
-
-.menu-toggle {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  z-index: 10;
-  color: white;
-  cursor: pointer;
-}
-
-.badge,
-.shiny-badge {
-  border-radius: 9999px;
-  padding: 3px 12px;
-  font-size: 12px;
-  font-weight: 600;
-}
-
-.shiny-badge {
-  position: relative;
-  overflow: hidden;
-  background-color: #f1f5f9;
-  color: #334155;
-  z-index: 0;
-}
-
-.dark .shiny-badge {
-  background-color: #1e293b;
-  color: #e2e8f0;
-}
-
-.shiny-badge::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -75%;
-  width: 150%;
-  height: 100%;
-  background: linear-gradient(
-    120deg,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0.5) 50%,
-    rgba(255, 255, 255, 0) 100%
-  );
-  animation: shine 2.5s infinite;
-  z-index: 1;
-}
-
-.shiny-badge > * {
-  position: relative;
-  z-index: 2;
-}
-
-@keyframes shine {
-  0% {
-    left: -75%;
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
-  100% {
-    left: 100%;
+
+  /*  Social Icon Hover */
+  .social-icon {
+    transition: all 0.3s ease;
   }
-}
-
-.dropdown {
-  position: absolute;
-  top: 3rem;
-  right: 1rem;
-  background-color: white;
-  border-radius: 0.5rem;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  z-index: 30;
-  overflow: hidden;
-}
-
-.dark .dropdown {
-  background-color: #1e293b;
-  color: white;
-}
-
-.dropdown-item {
-  padding: 0.5rem 1rem;
-  cursor: pointer;
-  white-space: nowrap;
-}
-
-.dropdown-item:hover {
-  background-color: #f3f4f6;
-}
-
-.dark .dropdown-item:hover {
-  background-color: #334155;
-}
-/* Music Player Styles */
-.music-player {
-  background-color: white;
-  border-radius: 12px;
-  padding: 15px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  width: 100%;
-}
-.dark .music-player {
-  background-color: #1e293b;
-}
-
-.player-controls {
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  align-items: center;
-}
-
-.music-title {
-  font-weight: 600;
-  font-size: 16px;
-  color: #333;
-  text-align: center;
-  margin: 5px 0;
-}
-.dark .music-title {
-  color: #f1f5f9;
-}
-
-.progress-container {
-  width: 100%;
-  height: 4px;
-  background: #e0e0e0;
-  border-radius: 2px;
-  cursor: pointer;
-  margin: 5px 0;
-  position: relative;
-}
-.dark .progress-container {
-  background: #475569;
-}
-
-.progress-bar {
-  height: 100%;
-  background: var(--primary-color);
-  border-radius: 2px;
-  width: 0%;
-  transition: width 0.1s linear;
-}
-
-.time-display {
-  display: flex;
-  justify-content: space-between;
-  font-size: 12px;
-  color: #666;
-  margin-top: 5px;
-  width: 100%;
-}
-.dark .time-display {
-  color: #cbd5e1;
-}
-
-.cover-image {
-  width: 80px;
-  height: 80px;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  flex-shrink: 0;
-}
-
-.cover-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.play-button {
-  background-color: transparent;
-  color: var(--primary-color);
-  border: none;
-  width: auto;
-  height: auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  padding: 0;
-  margin-right: 10px;
-  font-size: 1.25rem;
-}
-
-.play-button:hover {
-  color: var(--secondary-color);
-}
-    /* Kelap-kelip */
-@keyframes crown-glow {
-  0%   { filter: drop-shadow(0 0 3px #facc15); opacity: 1; }
-  50%  { filter: drop-shadow(0 0 6px #fde68a); opacity: 0.7; }
-  100% { filter: drop-shadow(0 0 3px #facc15); opacity: 1; }
-}
-
-.glow-crown {
-  animation: crown-glow 1.5s infinite ease-in-out;
-}
-
-/* Partikel debu */
-.particle-crown::before,
-.particle-crown::after {
-  content: '';
-  position: absolute;
-  top: 90%;
-  left: 50%;
-  width: 3px;
-  height: 3px;
-  background: #facc15;
-  border-radius: 50%;
-  opacity: 0;
-  animation: dust-fall 2s infinite ease-in-out;
-}
-
-.particle-crown::after {
-  left: 55%;
-  animation-delay: 1s;
-}
-
-@keyframes dust-fall {
-  0% {
-    transform: translateY(0) scale(1);
-    opacity: 0;
+  .social-icon:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(99, 102, 241, 0.5);
   }
-  30% {
-    opacity: 1;
+
+  /*  Crown Glow */
+  .glow-gold {
+    color: #facc15;
+    text-shadow: 0 0 6px #facc15, 0 0 12px #f59e0b, 0 0 18px #fbbf24;
   }
-  100% {
-    transform: translateY(15px) scale(0.5);
-    opacity: 0;
+
+  /*  Text Gradient Nebula */
+  .gradient-text {
+    background: linear-gradient(to right, #8b5cf6, #6366f1, #ec4899);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
-}
-  </style>
+
+  /*  Nebula Glow */
+  .text-glow {
+    text-shadow: 0 0 8px #818cf8, 0 0 16px #a855f7, 0 0 24px #9333ea;
+  }
+
+  /*  Music Player */
+  .music-player {
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+  }
+  .music-player:hover {
+    transform: scale(1.02);
+  }
+  #progress-container {
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+  #progress-bar {
+    transition: width 0.25s linear;
+  }
+
+  /*  Stats Card */
+  .stat-card {
+    transition: all 0.4s ease;
+  }
+  .stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 18px rgba(99, 102, 241, 0.3);
+  }
+
+  /*  Skill Bar */
+  .skill-progress {
+    width: 0%;
+    transition: width 1.2s cubic-bezier(0.22, 0.9, 0.35, 1);
+  }
+
+  /*  Gallery */
+  .gallery-item img {
+    transition: transform 0.4s ease;
+  }
+  .gallery-item:hover img {
+    transform: scale(1.1);
+  }
+
+  /*  Buttons & Links */
+  .link-card {
+    transition: all 0.3s ease;
+  }
+  .link-card:hover {
+    transform: scale(1.02);
+    background: linear-gradient(to right, #fdfdfd, #f0f0ff);
+  }
+  .dark .link-card:hover {
+    background: linear-gradient(to right, #1f1f2e, #2b2b3c);
+  }
+
+  /*  Vibe Section */
+  .vibe-bg {
+    background: linear-gradient(135deg, #4f46e5, #9333ea, #c026d3);
+    background-size: 200% 200%;
+    animation: gradientMove 6s ease infinite;
+  }
+  @keyframes gradientMove {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  /*  Buttons */
+  .btn-primary {
+    background: linear-gradient(to right, #818cf8, #a855f7);
+    color: white;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 9999px;
+    box-shadow: 0 4px 12px rgba(139, 92, 246, 0.4);
+    transition: all 0.3s ease;
+  }
+  .btn-primary:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(139, 92, 246, 0.6);
+  }
+
+  /*  Dark Mode Adjustments */
+  .dark .music-player,
+  .dark .stat-card,
+  .dark .link-card {
+    background-color: #1f1f2e !important;
+  }
+  .dark .stat-card:hover {
+    box-shadow: 0 6px 20px rgba(147, 51, 234, 0.4);
+  }
+</style>
 </head>
 <body class="bg-white text-gray-900 dark:bg-gray-900 dark:text-white transition-colors duration-300">
-<!-- Loader -->
-<!--<div id="preloader" class="fixed inset-0 flex items-center justify-center bg-white dark:bg-gray-900 z-50 transition-opacity duration-500 opacity-100">
-  <div class="animate-spin rounded-full h-12 w-12 border-t-4 border-b-4 border-blue-500"></div>
-</div>-->
-  <!-- Banner -->
-  <div class="banner relative">
-    <div class="menu-toggle" onclick="toggleDropdown()">
-      <i class="fas fa-ellipsis-v text-white text-xl"></i>
-    </div>
-    <!-- Light / Dark -->
-    <div id="theme-menu" class="dropdown hidden">
-  <div class="dropdown-item flex items-center gap-2" onclick="setTheme('light')">
-    <i class="fas fa-sun"></i> Light
+
+<!-- Banner -->
+<div class="banner relative h-52 bg-cover bg-center" style="background-image: url('https://files.catbox.moe/alcmz1.gif');">
+  <div class="menu-toggle absolute top-3 right-3 text-white text-xl cursor-pointer" onclick="toggleDropdown()">
+    <i class="fas fa-ellipsis-v"></i>
   </div>
-  <div class="dropdown-item flex items-center gap-2" onclick="setTheme('dark')">
-    <i class="fas fa-moon"></i> Dark
+  <div id="theme-menu" class="dropdown hidden">
+    <div class="dropdown-item p-2" onclick="setTheme('light')"><i class="fas fa-sun"></i> Light</div>
+    <div class="dropdown-item p-2" onclick="setTheme('dark')"><i class="fas fa-moon"></i> Dark</div>
   </div>
 </div>
-  </div> 
-  <!-- Profile Image --> 
-    <div class="flex justify-center relative -mt-16 z-20">
-  <div class="w-32 h-32 bg-white dark:bg-gray-800 rounded-full flex items-center justify-center shadow-lg border-4 border-white dark:border-gray-800 relative">
-    <img src="https://files.catbox.moe/vtv3s2.jpg" 
-         alt="Profile" 
-         class="w-full h-full object-cover rounded-full" 
-         onerror="this.onerror=null;this.src='https://placehold.co/300x300?text=Profile+Photo'" />
 
-    <!-- Animated Crown -->
-    <i class="fas fa-crown text-yellow-400 text-xl absolute -top-2 right-2 rotate-[25deg] glow-crown"></i>
-    <i class="fas fa-crown text-yellow-400 text-xl absolute -top-2 right-2 rotate-[25deg] glow-crown particle-crown"></i>
-  </div>
-</div>
- <!--<div class="flex justify-center relative -mt-16 z-20">
-    <div class="w-32 h-32 bg-white dark:bg-gray-800 rounded-full flex items-center justify-center shadow-lg border-4 border-white dark:border-gray-800">
-      <img src="https://files.catbox.moe/vtv3s2.jpg" alt="Profile" class="w-full h-full object-cover rounded-full"
-           onerror="this.onerror=null;this.src='https://placehold.co/300x300?text=Profile+Photo'" />
-    </div>
-</div>-->
-  
-  <!-- Main Content -->  
-  <div class="container mx-auto px-4 pt-6 pb-8 max-w-md">
-    <div class="text-center mb-8">
-      <h2 class="text-xl font-bold text-gray-800 dark:text-white mb-1 flex items-center justify-center gap-1">
-  Ikhwan (NazarickSpy_)
-  <i class="fas fa-circle-check text-blue-500 text-base" title="Verified"></i>
-</h2>
-      <p class="text-gray-600 dark:text-gray-400 mb-4">Hobby</p>
-      <p class="text-gray-700 dark:text-gray-300 px-4 text-sm">
-        Building beautiful digital experiences and sharing knowledge about web technologies.
-      </p>
-<!-- Birthday-->
-      <div class="flex flex-wrap gap-2 justify-center mt-2" id="user-tags">
-  <span class="badge bg-indigo-600 text-white text-sm px-3 py-1 rounded-full flex items-center gap-1">
-    <i class="fas fa-calendar-day"></i>
-    <span id="birthday-countdown-text">Loading...</span>
-  </span>
-</div>
-     
-      <div class="flex justify-center mt-3 gap-2 flex-wrap">
-        <span class="badge shiny-badge">
-          <i class="fas fa-music text-indigo-500"></i> Music Lover 
-        </span>
-        <span class="badge shiny-badge">
-          <i class="fas fa-code text-green-500"></i> Dev 
-        </span>
-        <span class="badge shiny-badge">
-          <i class="fas fa-gamepad text-pink-500"></i> Gamer 
-        </span>
-      </div>
-      <div class="flex justify-center space-x-4 mt-4">
-        <a href="https://t.me/ikhwanromadon" class="social-icon">
-          <i class="fab fa-telegram"></i>
-        </a>
-        <a href="https://instagram.com/wtf.w4n_" class="social-icon">
-          <i class="fab fa-instagram"></i>
-        </a>
-        <a href="https://www.tiktok.com/@wtf.w4n_?_t=ZS-8zzbolKei0t&_r=1" class="social-icon">
-          <i class="fab fa-tiktok"></i>
-        </a>
-      </div>      
+<!-- Profile -->
+<div class="flex justify-center -mt-16 z-20 relative">
+  <div class="relative">
+    <!-- Foto Profil -->
+    <div class="w-32 h-32 rounded-full border-4 border-white dark:border-gray-800 bg-white dark:bg-gray-800 shadow-lg overflow-hidden">
+      <img
+        src="https://files.catbox.moe/vtv3s2.jpg"
+        class="object-cover w-full h-full"
+        alt="Profile"
+      />
     </div>
 
-
-    
-
-<div class="music-player mb-8">
-  <div class="cover-image">
-    <img src="https://files.catbox.moe/tnjqna.jpg" alt="Cover Image">
+    <!--  Mahkota Miring Glow -->
+    <i class="fas fa-crown glow-gold text-2xl absolute -top-2 right-2 rotate-[38deg] rotate-crown"></i>
   </div>
-  <div class="player-controls">
-    <audio id="audio-player" src="https://files.catbox.moe/vfbecq.mp3"></audio>
-    <div class="music-title">Everything U Are - Hindia</div>
-    <div class="flex items-center w-full mt-2">
-      <button class="play-button" onclick="togglePlay()">
-        <i class="fas fa-play"></i>
-      </button>
-      <div class="flex-1 px-3">
-        <div class="progress-container" onclick="seek(event)">
-          <div class="progress-bar" id="progress-bar"></div>
-        </div>
-        <div class="time-display">
-          <span id="current-time">0:00</span>
-          <span id="duration">0:00</span>
+</div>
+
+<!-- Main -->
+<div class="container mx-auto px-4 pt-6 pb-10 max-w-md">
+  <div class="text-center mb-8">
+    <h2 class="text-xl font-bold flex items-center justify-center gap-1">Ikhwan (NazarickSpy_) <i class="fas fa-circle-check text-blue-500"></i></h2>
+    <p class="text-gray-500 dark:text-gray-400 mb-2">Hobby</p>
+    <p class="text-gray-700 dark:text-gray-300 text-sm">Building beautiful digital experiences and sharing knowledge about web technologies.</p>
+    <div class="flex justify-center gap-3 mt-4">
+      <a href="https://t.me/ikhwanromadon" class="social-icon bg-white rounded-full w-10 h-10 flex justify-center items-center shadow-md hover:scale-110"><i class="fab fa-telegram text-indigo-500"></i></a>
+      <a href="https://instagram.com/wtf.w4n_" class="social-icon bg-white rounded-full w-10 h-10 flex justify-center items-center shadow-md hover:scale-110"><i class="fab fa-instagram text-pink-500"></i></a>
+      <a href="https://www.tiktok.com/@wtf.w4n_" class="social-icon bg-white rounded-full w-10 h-10 flex justify-center items-center shadow-md hover:scale-110"><i class="fab fa-tiktok text-black dark:text-white"></i></a>
+    </div>
+  </div>
+
+  <!-- Music Player -->
+  <div class="music-player bg-white dark:bg-gray-800 rounded-xl p-4 shadow-md flex items-center gap-3 mb-8">
+    <div class="cover-image w-20 h-20 rounded-lg overflow-hidden">
+      <img src="https://files.catbox.moe/tnjqna.jpg" alt="Cover" onerror="this.src='https://files.catbox.moe/vtv3s2.jpg'" />
+    </div>
+    <div class="flex-1">
+      <div class="music-title text-center font-semibold mb-2">Everything U Are - Hindia</div>
+      <audio id="audio-player" src="https://files.catbox.moe/vfbecq.mp3"></audio>
+      <div class="flex items-center gap-3">
+        <button id="play-btn" class="play-button text-indigo-500 bg-transparent border-none p-2 rounded-full shadow-sm"><i class="fas fa-play"></i></button>
+        <div class="flex-1">
+          <div id="progress-container" class="progress-container bg-gray-300 dark:bg-gray-700 rounded-full h-2 cursor-pointer" style="position:relative">
+            <div id="progress-bar" class="progress-bar h-2 bg-indigo-500 rounded-full" style="width:0%"></div>
+          </div>
+          <div class="flex justify-between text-xs text-gray-500 mt-1"><span id="current-time">0:00</span><span id="duration">0:00</span></div>
         </div>
       </div>
     </div>
   </div>
-</div>
-    
-<!-- Link Cards -->
-    <div class="space-y-4 mb-8">
-  <a href="./pages/about.html" class="block">
-    <div class="link-card bg-white dark:bg-gray-800 p-5 flex items-center gap-4">
-      <div class="w-12 h-12 rounded-lg bg-gradient-to-r from-indigo-100 to-green-100 dark:from-indigo-800 dark:to-green-800 flex items-center justify-center text-indigo-500 dark:text-indigo-300">
-        <i class="fas fa-star fa-lg"></i>
+
+  <!-- Link Cards -->
+  <div class="space-y-4 mb-10">
+    <a href="./pages/about.html" class="block link-card bg-white dark:bg-gray-800 p-5 rounded-xl flex items-center gap-4 shadow-md hover:shadow-lg">
+      <i class="fas fa-star text-indigo-400 text-3xl mb-2"></i>
+      <div>
+        <h3 class="font-semibold">About Me?</h3>
+        <p class="text-gray-500 text-sm">Click to view!</p>
+      </div>
+      <i class="fas fa-chevron-right ml-auto text-gray-400"></i>
+    </a>
+    <a href="https://instagram.com/_pujiiiii" class="block link-card bg-white dark:bg-gray-800 p-5 rounded-xl flex items-center gap-4 shadow-md hover:shadow-lg">
+      <i class="far fa-heart text-pink-400 text-3xl mb-2"></i>
+      <div>
+        <h3 class="font-semibold">Someone I love?</h3>
+        <p class="text-gray-500 text-sm">Click to view!</p>
+      </div>
+      <i class="fas fa-chevron-right ml-auto text-gray-400"></i>
+    </a>
+    <a href="https://instagram.com/https://ngl-" class="block link-card bg-white dark:bg-gray-800 p-5 rounded-xl flex items-center gap-4 shadow-md hover:shadow-lg">
+      <i class="fas fa-user-secret text-yellow-400 text-3xl mb-2"></i>
+      <div>
+        <h3 class="font-semibold">Nothing?</h3>
+        <p class="text-gray-500 text-sm">Click to view!</p>
+      </div>
+      <i class="fas fa-chevron-right ml-auto text-gray-400"></i>
+    </a>
+  </div>
+
+  <!-- Stats Section (Enhanced) -->
+  <div id="stats-section" class="mb-10 fade-in-up">
+    <h3 class="text-lg font-bold text-gray-800 dark:text-white mb-4 text-center"><i class="fas fa-chart-line text-indigo-500"></i> Stats Overview</h3>
+    <div class="grid grid-cols-3 gap-4 text-center">
+      <div class="stat-card relative p-4 rounded-xl bg-white dark:bg-gray-800 shadow-sm">
+        <i class="fas fa-code text-indigo-500 text-3xl mb-2"></i>
+        <div class="stat-number text-3xl font-extrabold" data-target="7">0</div>
+        <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">Projects</p>
+      </div>
+      <div class="stat-card relative p-4 rounded-xl bg-white dark:bg-gray-800 shadow-sm">
+        <i class="fas fa-user-tie text-yellow-400 text-3xl mb-2"></i>
+        <div class="stat-number text-3xl font-extrabold" data-target="3">0</div>
+        <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">Years Exp</p>
+      </div>
+      <div class="stat-card relative p-4 rounded-xl bg-white dark:bg-gray-800 shadow-sm">
+        <i class="fas fa-coffee text-pink-500 text-3xl mb-2"></i>
+        <div class="stat-number text-3xl font-extrabold" data-target="23">0</div>
+        <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">Cups of Coffee</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Skills Section -->
+  <div id="skills-section" class="mb-10 fade-in-up">
+    <h3 class="text-lg font-bold text-gray-800 dark:text-white mb-4"><i class="fas fa-tools text-green-500"></i> Skills & Tech Stack</h3>
+    <div class="bg-white dark:bg-gray-800 rounded-xl p-5 space-y-5">
+      <div>
+        <div class="flex justify-between mb-1"><span class="flex items-center gap-2"><i class="fab fa-html5 text-orange-500"></i> HTML/CSS</span><span>90%</span></div>
+        <div class="h-3 bg-gray-300 dark:bg-gray-700 rounded-full overflow-hidden"><div class="skill-progress h-3 bg-gradient-to-r from-orange-400 to-pink-500" data-width="90" style="width:0%"></div></div>
       </div>
       <div>
-        <h3 class="font-semibold text-gray-800 dark:text-white">About Me?</h3>
-        <p class="text-sm text-gray-500 dark:text-gray-400">Click to view!</p>
-      </div>
-      <div class="ml-auto text-gray-400 dark:text-gray-300">
-        <i class="fas fa-chevron-right"></i>
-      </div>
-    </div>
-  </a> 
-      <a href="https://instagram.com/_pujiiiii" class="block">
-    <div class="link-card bg-white dark:bg-gray-800 p-5 flex items-center gap-4">
-      <div class="w-12 h-12 rounded-lg bg-gradient-to-r from-blue-100 to-purple-100 dark:from-blue-800 dark:to-purple-800 flex items-center justify-center text-blue-500 dark:text-blue-300">
-        <i class="far fa-heart fa-lg"></i>
+        <div class="flex justify-between mb-1"><span class="flex items-center gap-2"><i class="fab fa-js text-yellow-400"></i> JavaScript</span><span>85%</span></div>
+        <div class="h-3 bg-gray-300 dark:bg-gray-700 rounded-full overflow-hidden"><div class="skill-progress h-3 bg-gradient-to-r from-yellow-400 to-amber-600" data-width="85" style="width:0%"></div></div>
       </div>
       <div>
-        <h3 class="font-semibold text-gray-800 dark:text-white">Someone I love?</h3>
-        <p class="text-sm text-gray-500 dark:text-gray-400">Click to view!</p>
-      </div>
-      <div class="ml-auto text-gray-400 dark:text-gray-300">
-        <i class="fas fa-chevron-right"></i>
-      </div>
-    </div>
-  </a>  
-      <a href="http://synthix.ddns.net:3043/" class="block">
-    <div class="link-card bg-white dark:bg-gray-800 p-5 flex items-center gap-4">
-      <div class="w-12 h-12 rounded-lg bg-gradient-to-r from-green-100 to-teal-100 dark:from-green-800 dark:to-teal-800 flex items-center justify-center text-green-500 dark:text-green-300">
-        <i class="fas fa-user-secret fa-lg"></i>
+        <div class="flex justify-between mb-1"><span class="flex items-center gap-2"><i class="fab fa-react text-blue-400"></i> React</span><span>70%</span></div>
+        <div class="h-3 bg-gray-300 dark:bg-gray-700 rounded-full overflow-hidden"><div class="skill-progress h-3 bg-gradient-to-r from-blue-400 to-cyan-400" data-width="80" style="width:0%"></div></div>
       </div>
       <div>
-        <h3 class="font-semibold text-gray-800 dark:text-white">Nothing?</h3>
-        <p class="text-sm text-gray-500 dark:text-gray-400">Click to view!</p>
-      </div>
-      <div class="ml-auto text-gray-400 dark:text-gray-300">
-        <i class="fas fa-chevron-right"></i>
+        <div class="flex justify-between mb-1"><span class="flex items-center gap-2"><i class="fab fa-node text-green-500"></i> Node.js</span><span>70%</span></div>
+        <div class="h-3 bg-gray-300 dark:bg-gray-700 rounded-full overflow-hidden"><div class="skill-progress h-3 bg-gradient-to-r from-green-500 to-emerald-400" data-width="75" style="width:0%"></div></div>
       </div>
     </div>
-  </a>
+  </div>
+
+  <!-- Gallery -->
+  <div class="mb-10 fade-in-up">
+    <h3 class="text-lg font-bold mb-4 text-gray-800 dark:text-white"><i class="fas fa-images text-pink-500"></i> Gallery</h3>
+    <div class="grid grid-cols-3 gap-3">
+      <div class="gallery-item overflow-hidden rounded-xl"><img src="https://picsum.photos/400/400?random=1" alt="Project 1" class="w-full h-full object-cover hover:scale-110 transition" /></div>
+      <div class="gallery-item overflow-hidden rounded-xl"><img src="https://picsum.photos/400/400?random=2" alt="Project 2" class="w-full h-full object-cover hover:scale-110 transition" /></div>
+      <div class="gallery-item overflow-hidden rounded-xl"><img src="https://picsum.photos/400/400?random=3" alt="Project 3" class="w-full h-full object-cover hover:scale-110 transition" /></div>
     </div>
-    <div class="text-center text-gray-500 text-xs">
-      <p>© 2025 My Portfolio. All rights reserved.</p>
-      <p class="mt-1">Made with ❤️ by Ikhwan Romadon</p>
+  </div>
+
+  <!-- Vibe Section (Cool & Gen Z) -->
+  <div class="mb-10 fade-in-up">
+    <div class="bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-800 dark:to-purple-800 rounded-2xl p-8 text-center text-white shadow-xl relative overflow-hidden">
+      <i class="fas fa-bolt text-yellow-300 text-3xl mb-3"></i>
+      <h3 class="text-xl font-bold mb-3 tracking-wide">Keep Evolving � Even When Nobody�s Watching.</h3>
+      <p class="text-sm mb-5 text-white/90">Perfection is boring � real magic is born from passion, curiosity, and a touch of madness </p>
+      <a href="https://t.me/ikhwanromadon" class="inline-block bg-white text-indigo-700 font-semibold px-6 py-3 rounded-full shadow-md hover:shadow-lg hover:scale-105 transition-all"><i class="fas fa-paper-plane mr-2"></i>Hit Me Up</a>
+      <p class="text-xs text-white/70 mt-6 italic">"I�m still learning how to turn pain into purpose."</p>
+      <div class="flex justify-center gap-5 mt-5">
+        <a href="https://instagram.com/wtf.w4n_" class="text-white/80 hover:text-white text-xl transition"><i class="fab fa-instagram"></i></a>
+        <a href="https://t.me/ikhwanromadon" class="text-white/80 hover:text-white text-xl transition"><i class="fab fa-telegram"></i></a>
+        <a href="https://www.tiktok.com/@wtf.w4n_" class="text-white/80 hover:text-white text-xl transition"><i class="fab fa-tiktok"></i></a>
+      </div>
+      <div class="absolute inset-0 bg-[url('https://files.catbox.moe/alcmz1.gif')] bg-cover bg-center opacity-10 pointer-events-none"></div>
     </div>
-  </div>  <script>
-    const themeMenu = document.getElementById('theme-menu');
+    <div class="h-1 w-24 bg-gradient-to-r from-purple-500 via-pink-500 to-indigo-500 mx-auto mt-8 rounded-full animate-pulse"></div>
+  </div>
 
-    function toggleDropdown() {
-      themeMenu.classList.toggle('hidden');
-    }
+<!-- COMPLETE JS -->
+<script>
+  // Theme dropdown
+  const themeMenu = document.getElementById('theme-menu');
+  function toggleDropdown(){ themeMenu.classList.toggle('hidden'); }
+  function setTheme(mode){ const html=document.documentElement; if(mode==='dark'){ html.classList.add('dark'); localStorage.setItem('theme','dark'); } else { html.classList.remove('dark'); localStorage.setItem('theme','light'); } themeMenu.classList.add('hidden'); }
+  const savedTheme = localStorage.getItem('theme'); if(savedTheme){ document.documentElement.classList.toggle('dark', savedTheme==='dark'); }
 
-    function setTheme(mode) {
-      const html = document.documentElement;
-      if (mode === 'dark') {
-        html.classList.add('dark');
-        localStorage.setItem('theme', 'dark');
-      } else {
-        html.classList.remove('dark');
-        localStorage.setItem('theme', 'light');
-      }
-      themeMenu.classList.add('hidden');
-    }
+  // Audio player controls
+  const audio = document.getElementById('audio-player');
+  const playBtn = document.getElementById('play-btn');
+  const playIcon = playBtn.querySelector('i');
+  const progressBar = document.getElementById('progress-bar');
+  const progressContainer = document.getElementById('progress-container');
+  const currentTimeEl = document.getElementById('current-time');
+  const durationEl = document.getElementById('duration');
 
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-      document.documentElement.classList.toggle('dark', savedTheme === 'dark');
-    }
+  function formatTime(seconds){ if(!seconds || isNaN(seconds)) return '0:00'; const m = Math.floor(seconds/60); const s = Math.floor(seconds%60); return `${m}:${s<10? '0'+s : s}`; }
 
-    const audio = document.getElementById("audio-player");
-  const playButton = document.querySelector(".play-button i");
-  const progressBar = document.getElementById("progress-bar");
-  const currentTimeEl = document.getElementById("current-time");
-  const durationEl = document.getElementById("duration");
-
-  function togglePlay() {
-    if (audio.paused) {
-      audio.play();
-      playButton.classList.remove("fa-play");
-      playButton.classList.add("fa-pause");
-    } else {
-      audio.pause();
-      playButton.classList.remove("fa-pause");
-      playButton.classList.add("fa-play");
-    }
-  }
-
-  audio.addEventListener("timeupdate", () => {
-    const progress = (audio.currentTime / audio.duration) * 100;
-    progressBar.style.width = `${progress}%`;
-    currentTimeEl.textContent = formatTime(audio.currentTime);
-    durationEl.textContent = formatTime(audio.duration);
+  playBtn.addEventListener('click', () => {
+    if(audio.paused){ audio.play().catch(()=>{}); playIcon.classList.replace('fa-play','fa-pause'); }
+    else{ audio.pause(); playIcon.classList.replace('fa-pause','fa-play'); }
   });
 
-  function seek(e) {
-    const container = e.currentTarget;
-    const rect = container.getBoundingClientRect();
-    const offsetX = e.clientX - rect.left;
-    const percentage = offsetX / rect.width;
-    audio.currentTime = percentage * audio.duration;
-  }
+  audio.addEventListener('loadedmetadata', ()=>{ durationEl.textContent = formatTime(audio.duration); });
+  audio.addEventListener('timeupdate', ()=>{
+    const pct = (audio.currentTime / (audio.duration || 1)) * 100; progressBar.style.width = pct + '%'; currentTimeEl.textContent = formatTime(audio.currentTime);
+  });
+  audio.addEventListener('ended', ()=>{ playIcon.classList.replace('fa-pause','fa-play'); });
+  audio.addEventListener('error', ()=>{ console.warn('Audio failed to load'); });
 
-  function formatTime(seconds) {
-    const minutes = Math.floor(seconds / 60) || 0;
-    const secs = Math.floor(seconds % 60) || 0;
-    return `${minutes}:${secs < 10 ? "0" : ""}${secs}`;
-  }
-
-  
-  
-  window.addEventListener("load", () => {
-    setTimeout(() => {
-      const loader = document.getElementById("preloader");
-      if (loader) {
-        loader.classList.add("opacity-0"); 
-        setTimeout(() => {
-          loader.style.display = "none"; 
-        }, 500); 
-      }
-    }, 1000); 
+  // Seek
+  progressContainer.addEventListener('click', (e)=>{
+    const rect = progressContainer.getBoundingClientRect(); const x = e.clientX - rect.left; const pct = x / rect.width; if(!isNaN(audio.duration)) audio.currentTime = pct * audio.duration;
   });
 
+  // Stats counter - trigger when visible
+  const counters = document.querySelectorAll('.stat-number');
+  const counterObserver = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        const el = entry.target; const target = +el.getAttribute('data-target'); let start = 0; const step = Math.max(1, Math.floor(target/100));
+        const tick = () => { start += step; if(start >= target){ el.textContent = target; } else { el.textContent = start; requestAnimationFrame(tick); } };
+        tick(); obs.unobserve(el);
+      }
+    });
+  }, {threshold:0.6});
+  counters.forEach(c=>counterObserver.observe(c));
 
+  // Skill bars animate when visible
+  const skills = document.querySelectorAll('.skill-progress');
+  const skillObserver = new IntersectionObserver((entries, obs)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){ const el = entry.target; const w = el.getAttribute('data-width'); el.style.width = w + '%'; obs.unobserve(el); }
+    });
+  }, {threshold: 0.4});
+  skills.forEach(s=>skillObserver.observe(s));
 
-function updateBirthdayCountdown() {
-    const today = new Date();
-    const birthday = new Date("2026-08-21");
-
-    birthday.setHours(0, 0, 0, 0);
-    today.setHours(0, 0, 0, 0);
-
-    const diffTime = birthday - today;
-    const daysLeft = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-    const el = document.getElementById("birthday-countdown-text");
-
-    if (daysLeft > 0) {
-      el.textContent = `${daysLeft} Days to Birthday`;
-    } else if (daysLeft === 0) {
-      el.textContent = `🎂 Today is your Birthday!`;
-    } else {
-      el.textContent = `🎉 Birthday Passed`;
-    }
+  // Birthday countdown (example date) — update id if needed
+  function updateBirthdayCountdown(){ const el = document.getElementById('birthday-countdown-text'); if(!el) return; const today = new Date(); const birthday = new Date('2026-08-21'); birthday.setHours(0,0,0,0); today.setHours(0,0,0,0); const diff = birthday - today; const days = Math.ceil(diff / (1000*60*60*24)); if(days>0) el.textContent = `${days} Days to Birthday`; else if(days===0) el.textContent = `🎂 Today is your Birthday!`; else el.textContent = `🎉 Birthday Passed`; }
+  // create countdown element if missing
+  if(!document.getElementById('birthday-countdown-text')){
+    const tagWrap = document.getElementById('user-tags'); if(tagWrap){ const span = document.createElement('span'); span.className='badge bg-indigo-600 text-white text-sm px-3 py-1 rounded-full flex items-center gap-1'; span.innerHTML='<i class="fas fa-calendar-day"></i> <span id="birthday-countdown-text">Loading...</span>'; tagWrap.appendChild(span); }
   }
-
   updateBirthdayCountdown();
 
-    
-  </script></body>
+  // Close dropdown on outside click
+  window.addEventListener('click', (e)=>{ const menu = document.getElementById('theme-menu'); const toggle = document.querySelector('.menu-toggle'); if(!menu) return; if(!menu.contains(e.target) && !toggle.contains(e.target)){ menu.classList.add('hidden'); } });
+
+  // Ensure progressContainer variable exists (fallback if missing id)
+  if(!progressContainer){ const pc = document.getElementById('progress-container'); if(pc) pc.addEventListener('click', (e)=>{ const rect = pc.getBoundingClientRect(); const x = e.clientX - rect.left; if(!isNaN(audio.duration)) audio.currentTime = (x/rect.width)*audio.duration; }); }
+</script>
+</body>
+</html>
+  <div class="text-center text-gray-500 text-xs">
+    <p>© 2025 All rights reserved.</p>
+    <p class="mt-1">Made with ❤️ by Ikhwan Romadon</p>
+  </div>
+</div>
+
+<script>
+  const themeMenu = document.getElementById('theme-menu');
+  function toggleDropdown(){themeMenu.classList.toggle('hidden');}
+  function setTheme(mode){const html=document.documentElement;if(mode==='dark'){html.classList.add('dark');localStorage.setItem('theme','dark');}else{html.classList.remove('dark');localStorage.setItem('theme','light');}themeMenu.classList.add('hidden');}
+  const savedTheme=localStorage.getItem('theme');if(savedTheme){document.documentElement.classList.toggle('dark',savedTheme==='dark');}
+
+  const audio=document.getElementById('audio-player');const playButton=document.querySelector('.play-button i');const progressBar=document.getElementById('progress-bar');
+  function togglePlay(){if(audio.paused){audio.play();playButton.classList.replace('fa-play','fa-pause');}else{audio.pause();playButton.classList.replace('fa-pause','fa-play');}}
+  audio.addEventListener('timeupdate',()=>{const progress=(audio.currentTime/audio.duration)*100;progressBar.style.width=progress+'%';});
+  function seek(e){const rect=e.currentTarget.getBoundingClientRect();const percent=(e.clientX-rect.left)/rect.width;audio.currentTime=percent*audio.duration;}
+
+  document.querySelectorAll('.stat-number').forEach(num=>{const target=+num.getAttribute('data-target');let count=0;const speed=target/100;const update=()=>{if(count<target){count+=speed;num.textContent=Math.floor(count);requestAnimationFrame(update);}else{num.textContent=target;}};update();});
+  document.querySelectorAll('.skill-progress').forEach(bar=>{const width=bar.getAttribute('data-width');setTimeout(()=>{bar.style.width=width+'%';},400);});
+</script>
+</body>
 </html>
